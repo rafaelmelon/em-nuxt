@@ -1,25 +1,30 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">Empathy</h1>
-      <div class="links">
-        <a href="/blog" class="button--green"> Blog </a>
-      </div>
-    </div>
+    <h1 class="title">Post</h1>
+    <div>{{ post.title }}</div>
   </div>
 </template>
 
 <script>
+import { POSTS } from '~/mock'
+
 export default {
+  data() {
+    return {
+      post: {},
+    }
+  },
+  created() {
+    this.post = POSTS.find((post) => post.id === this.$route.params.id)
+  },
   head() {
     return {
-      title: 'Empathy | Home',
+      title: 'Empathy | ' + this.post.title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'Website to show comparatives',
+          content: this.post.title,
         },
       ],
       htmlAttrs: {
@@ -48,17 +53,5 @@ export default {
   font-size: 100px;
   color: #35495e;
   letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
 }
 </style>

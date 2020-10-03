@@ -1,25 +1,39 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">Empathy</h1>
-      <div class="links">
-        <a href="/blog" class="button--green"> Blog </a>
-      </div>
-    </div>
+    <h1 class="title">Blog</h1>
+    <Post
+      v-for="item of posts"
+      :id="item.id"
+      :key="item.id"
+      :title="item.title"
+    />
   </div>
 </template>
 
 <script>
+import { POSTS } from '~/mock'
+import Post from '~/components/Post'
+
 export default {
+  components: {
+    Post,
+  },
+  data() {
+    return {
+      post: [],
+    }
+  },
+  created() {
+    this.posts = POSTS
+  },
   head() {
     return {
-      title: 'Empathy | Home',
+      title: 'Empathy | Blog',
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'Website to show comparatives',
+          content: 'Section to show posts',
         },
       ],
       htmlAttrs: {
@@ -48,17 +62,5 @@ export default {
   font-size: 100px;
   color: #35495e;
   letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
 }
 </style>
