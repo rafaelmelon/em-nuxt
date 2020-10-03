@@ -1,7 +1,7 @@
 <template>
   <nuxt-link :to="'/blog/' + path">
     <div>
-      <p>{{ path }} . {{ title }}</p>
+      <p>{{ path }} . {{ name }}</p>
     </div>
   </nuxt-link>
 </template>
@@ -14,7 +14,7 @@ export default {
       type: String,
       required: true,
     },
-    title: {
+    name: {
       type: String,
       required: true,
     },

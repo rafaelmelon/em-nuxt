@@ -1,13 +1,18 @@
 <template>
-  <div class="container">
-    <h1 class="title">Blog</h1>
-    <Post
-      v-for="item of posts"
-      :key="item.id"
-      :path="item.path"
-      :title="item.title"
-    />
-  </div>
+  <main class="container">
+    <section>
+      <h1 class="h1">Blog</h1>
+      <p class="p">Welcome to the Blog.</p>
+    </section>
+    <section>
+      <Post
+        v-for="item of posts"
+        :key="item.id"
+        :path="item.path"
+        :name="item.name"
+      />
+    </section>
+  </main>
 </template>
 
 <script>
@@ -43,24 +48,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-</style>

@@ -1,16 +1,13 @@
 <template>
-  <div class="container">
-    <h1 class="title">Antagonism</h1>
-    <ul>
-      <li v-for="item of antagonism.antagonists" :key="item.id">
-        <nuxt-link :to="'/antagonism/' + antagonism.path + '/' + item.path">
-          <div>
-            <p>{{ item.id }} . {{ item.name }}</p>
-          </div>
-        </nuxt-link>
-      </li>
-    </ul>
-  </div>
+  <main class="container">
+    <section>
+      <h1 class="h1">{{ antagonism.name }}</h1>
+      <p class="p">{{ antagonism.description }}</p>
+    </section>
+    <section>
+      <Card :antagonism="antagonism" />
+    </section>
+  </main>
 </template>
 
 <script>
@@ -44,24 +41,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-</style>

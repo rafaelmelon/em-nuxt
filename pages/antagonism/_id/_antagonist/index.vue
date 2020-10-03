@@ -1,8 +1,14 @@
 <template>
-  <div class="container">
-    <h1 class="title">Antagonist</h1>
-    <div>{{ antagonist.description }}</div>
-  </div>
+  <main class="container">
+    <section>
+      <h1 class="h1">{{ antagonist.name }}</h1>
+      <img
+        :src="require(`~/assets/logos/${antagonist.imgPath}`)"
+        :alt="antagonist.name"
+      />
+      <p class="p">{{ antagonist.description }}</p>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -39,24 +45,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-</style>
