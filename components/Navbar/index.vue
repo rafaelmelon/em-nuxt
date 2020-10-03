@@ -23,16 +23,6 @@ import { ANTAGONIMS } from '~/mock'
 
 export default {
   name: 'Navbar',
-  props: {
-    path: {
-      type: String,
-      required: true,
-    },
-    description: {
-      type: String,
-      required: true,
-    },
-  },
   data() {
     return {
       antagonisms: [],
