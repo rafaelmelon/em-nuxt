@@ -1,39 +1,35 @@
 <template>
   <div class="container">
-    <h1 class="title">Blog</h1>
-    <Post
-      v-for="item of posts"
-      :key="item.id"
-      :path="item.path"
-      :title="item.title"
-    />
+    <h1 class="title">Antagonist</h1>
+    <div>{{ antagonist.description }}</div>
   </div>
 </template>
 
 <script>
-import { POSTS } from '~/mock'
-import Post from '~/components/Post'
+import { ANTAGONIMS } from '~/mock'
 
 export default {
-  components: {
-    Post,
-  },
   data() {
     return {
-      post: [],
+      antagonist: {},
     }
   },
   created() {
-    this.posts = POSTS
+    const { id, antagonist } = this.$route.params
+
+    const antagonism = ANTAGONIMS.find((item) => item.path === id)
+    this.antagonist = antagonism.antagonists.find(
+      (item) => item.path === antagonist
+    )
   },
   head() {
     return {
-      title: 'Empathy | Blog',
+      title: 'Empathy | ' + this.antagonist.description,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'Section to show posts',
+          content: this.antagonist.description,
         },
       ],
       htmlAttrs: {

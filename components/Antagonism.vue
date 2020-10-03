@@ -1,20 +1,20 @@
 <template>
-  <nuxt-link :to="'/blog/' + path">
+  <nuxt-link :to="'/antagonism/' + path">
     <div>
-      <p>{{ path }} . {{ title }}</p>
+      <p>{{ path }} . {{ description }}</p>
     </div>
   </nuxt-link>
 </template>
 
 <script>
 export default {
-  name: 'Post',
+  name: 'Antagonism',
   props: {
     path: {
       type: String,
       required: true,
     },
-    title: {
+    description: {
       type: String,
       required: true,
     },

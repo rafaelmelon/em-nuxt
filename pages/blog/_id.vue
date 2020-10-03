@@ -15,7 +15,7 @@ export default {
     }
   },
   created() {
-    this.post = POSTS.find((post) => post.id === this.$route.params.id)
+    this.post = POSTS.find((post) => post.path === this.$route.params.id)
   },
   head() {
     return {

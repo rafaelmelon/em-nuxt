@@ -1,39 +1,40 @@
 <template>
   <div class="container">
-    <h1 class="title">Blog</h1>
-    <Post
-      v-for="item of posts"
-      :key="item.id"
-      :path="item.path"
-      :title="item.title"
-    />
+    <h1 class="title">Antagonism</h1>
+    <ul>
+      <li v-for="item of antagonism.antagonists" :key="item.id">
+        <nuxt-link :to="'/antagonism/' + antagonism.path + '/' + item.path">
+          <div>
+            <p>{{ item.id }} . {{ item.name }}</p>
+          </div>
+        </nuxt-link>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import { POSTS } from '~/mock'
-import Post from '~/components/Post'
+import { ANTAGONIMS } from '~/mock'
 
 export default {
-  components: {
-    Post,
-  },
   data() {
     return {
-      post: [],
+      antagonism: {},
     }
   },
   created() {
-    this.posts = POSTS
+    this.antagonism = ANTAGONIMS.find(
+      (antagonism) => antagonism.path === this.$route.params.id
+    )
   },
   head() {
     return {
-      title: 'Empathy | Blog',
+      title: 'Empathy | ' + this.antagonism.description,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'Section to show posts',
+          content: this.antagonism.description,
         },
       ],
       htmlAttrs: {

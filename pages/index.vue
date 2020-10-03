@@ -3,6 +3,12 @@
     <div>
       <Logo />
       <h1 class="title">Empathy</h1>
+      <Antagonism
+        v-for="item of antagonisms"
+        :key="item.id"
+        :path="item.path"
+        :description="item.description"
+      />
       <div class="links">
         <a href="/blog" class="button--green"> Blog </a>
       </div>
@@ -11,7 +17,21 @@
 </template>
 
 <script>
+import { ANTAGONIMS } from '~/mock'
+import Antagonism from '~/components/Antagonism'
+
 export default {
+  components: {
+    Antagonism,
+  },
+  data() {
+    return {
+      antagonisms: [],
+    }
+  },
+  created() {
+    this.antagonisms = ANTAGONIMS
+  },
   head() {
     return {
       title: 'Empathy | Home',
