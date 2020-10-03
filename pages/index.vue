@@ -1,24 +1,28 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
+    <section>
       <h1 class="title">Empathy</h1>
-      <Antagonism
-        v-for="item of antagonisms"
-        :key="item.id"
-        :path="item.path"
-        :description="item.description"
-      />
-      <div class="links">
-        <a href="/blog" class="button--green"> Blog </a>
-      </div>
-    </div>
+    </section>
+    <section class="antagonisms">
+      <ul>
+        <li>
+          <Antagonism
+            v-for="item of antagonisms"
+            :key="item.id"
+            :antagonism="item"
+          />
+        </li>
+      </ul>
+    </section>
+    <section class="links">
+      <a href="/blog" class="button--green"> Blog </a>
+    </section>
   </div>
 </template>
 
 <script>
 import { ANTAGONIMS } from '~/mock'
-import Antagonism from '~/components/Antagonism'
+import { Antagonism } from '~/components'
 
 export default {
   components: {
@@ -58,6 +62,7 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex-direction: column;
 }
 
 .title {

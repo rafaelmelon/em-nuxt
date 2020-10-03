@@ -1,8 +1,30 @@
 <template>
   <div>
+    <Navbar />
     <Nuxt />
+    <Footer />
   </div>
 </template>
+
+<script>
+import { ANTAGONIMS } from '~/mock'
+import { Navbar, Footer } from '~/components'
+
+export default {
+  components: {
+    Navbar,
+    Footer,
+  },
+  data() {
+    return {
+      antagonisms: [],
+    }
+  },
+  created() {
+    this.antagonisms = ANTAGONIMS
+  },
+}
+</script>
 
 <style>
 html {

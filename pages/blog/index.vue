@@ -12,7 +12,7 @@
 
 <script>
 import { POSTS } from '~/mock'
-import Post from '~/components/Post'
+import { Post } from '~/components'
 
 export default {
   components: {
