@@ -1,10 +1,10 @@
 <template>
-  <header class="navbar">
+  <header class="navbar flex">
     <nuxt-link class="navbar__logo" to="/"
       ><img src="~/assets/logo-rafaelmelon.svg" alt="logo rafaelmelon"
     /></nuxt-link>
-    <nav>
-      <ul>
+    <nav class="flex center">
+      <ul class="flex">
         <li v-for="item of antagonisms" :key="item.id">
           <nuxt-link :to="'/antagonism/' + item.path">{{
             item.name
@@ -36,7 +36,6 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
-  display: flex;
   justify-content: space-between;
   align-items: stretch;
   background-color: $primary;
@@ -50,10 +49,7 @@ export default {
     }
   }
   nav {
-    display: flex;
-    align-items: center;
     ul {
-      display: flex;
       margin-right: 1rem;
       li {
         a {

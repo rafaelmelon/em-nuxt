@@ -2,6 +2,22 @@
   "name": "em-nuxt",
   "version": "1.0.0",
   "private": true,
+  "description": "Rafael Melón | Empathy",
+  "author": "Rafael Melón | User-centered Front-end Developer <info@rafaelmelon.com> (https://www.rafaelmelon.com/)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelmelon/em-nuxt.git"
+  },
+  "keywords": [
+    "nuxtjs",
+    "webpack",
+    "babel",
+    "sass",
+    "vuejs",
+    "jest",
+    "markdown",
+    "prettier"
+  ],
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -41,6 +57,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.3.0",
     "jest": "^26.4.2",
+    "jest-transform-stub": "^2.0.0",
     "lint-staged": "^10.3.0",
     "node-sass": "^4.14.1",
     "prettier": "^2.1.1",

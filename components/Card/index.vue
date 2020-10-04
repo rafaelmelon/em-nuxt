@@ -1,14 +1,17 @@
 <template>
   <article class="card">
-    <header v-if="!show" class="card__header">
+    <header v-if="!show" class="card__header flex center flex-column">
       <h2 class="h2">{{ antagonism.name }}</h2>
       <p class="p">{{ antagonism.description }}</p>
     </header>
     <div class="card__items">
-      <ul>
+      <ul class="flex center flex-column">
         <li v-for="item of antagonism.antagonists" :key="item.id">
-          <nuxt-link :to="`/antagonism/${antagonism.path}/${item.path}`">
-            <div class="card__item">
+          <NuxtLink
+            class="flex center flex-column"
+            :to="`/antagonism/${antagonism.path}/${item.path}`"
+          >
+            <div class="card__item flex flex-column">
               <h3 class="h3">{{ item.name }}</h3>
               <img
                 :src="require(`~/assets/logos/${item.imgPath}`)"
@@ -16,14 +19,14 @@
               />
             </div>
             <CardSpecs v-if="show" :specs="item.specs" />
-          </nuxt-link>
+          </NuxtLink>
         </li>
       </ul>
     </div>
     <footer v-if="!show" class="card__actions">
-      <nuxt-link class="button--grey" :to="`/antagonism/${antagonism.path}`">{{
+      <NuxtLink class="button--grey" :to="`/antagonism/${antagonism.path}`">{{
         `Compare ${antagonism.name}`
-      }}</nuxt-link>
+      }}</NuxtLink>
     </footer>
   </article>
 </template>
@@ -55,16 +58,10 @@ export default {
   background-color: $light-gray;
   border-radius: $radius;
   &__header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding: 1rem 1rem 0 1rem;
   }
   &__item {
     margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     min-height: 200px;
@@ -74,19 +71,15 @@ export default {
   &__items {
     padding: 1rem;
     > ul {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @media (min-width: 768px) {
+        flex-direction: row;
+      }
       > li {
         a {
           min-height: 200px;
           min-width: 200px;
           padding: 1rem;
           margin: 1rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
           border-radius: $radius;
           border: 1px solid $dark;
           background-color: $white;

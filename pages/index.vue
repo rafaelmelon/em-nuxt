@@ -2,7 +2,10 @@
   <main class="container-md">
     <section class="header">
       <h1 class="h1">Empathy</h1>
-      <p class="p">Welcome to Empathy comparison page.</p>
+      <p class="p">
+        Cum dignatus poterisne colis ac texit o muneris, est, habitus lacerto
+        male Lycabas armata.
+      </p>
     </section>
     <section>
       <Card
@@ -26,6 +29,8 @@ export default {
   components: {
     Card,
   },
+  name: 'page',
+  mode: 'out-in',
   data() {
     return {
       antagonisms: [],

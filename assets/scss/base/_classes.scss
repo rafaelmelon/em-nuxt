@@ -355,25 +355,25 @@ h6 {
 
 .h1 {
   font-weight: $bold-font-weight;
-  font-size: 100px;
+  font-size: 6rem;
   @include heading;
 }
 
 .h2 {
   font-weight: $base-font-weight;
-  font-size: 50px;
+  font-size: 3rem;
   @include heading;
 }
 
 .h3 {
   font-weight: $bold-font-weight;
-  font-size: 20px;
+  font-size: 1.5rem;
   @include heading;
 }
 
 .p {
   font-weight: $base-font-weight;
-  font-size: 14px;
+  font-size: 1rem;
   color: $dark;
   letter-spacing: 1px;
   margin-bottom: 1rem;
@@ -385,6 +385,15 @@ h6 {
     width: 100%;
     margin-bottom: 1rem;
   }
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.1s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
 }
 
 .button {
