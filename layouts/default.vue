@@ -127,6 +127,8 @@ h6 {
   font-size: 100px;
   color: #35495e;
   letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 1rem;
 }
 
 .h2 {
@@ -158,6 +160,13 @@ h6 {
   color: #35495e;
   letter-spacing: 1px;
   margin-bottom: 1rem;
+}
+
+.header {
+  margin: 2rem 0;
+  img {
+    width: 100%;
+  }
 }
 
 .button--green {

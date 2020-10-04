@@ -1,6 +1,6 @@
 <template>
-  <main class="container">
-    <section>
+  <main class="container-md">
+    <section class="header">
       <h1 class="h1">Empathy</h1>
       <p class="p">Welcome to Empathy comparison page.</p>
     </section>

@@ -1,6 +1,6 @@
 <template>
-  <main class="container">
-    <section>
+  <main class="container-md">
+    <section class="header">
       <h1 class="h1">{{ antagonism.name }}</h1>
       <p class="p">{{ antagonism.description }}</p>
     </section>

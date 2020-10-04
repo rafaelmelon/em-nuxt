@@ -177,20 +177,3 @@ export const ANTAGONIMS = [
     ],
   },
 ]
-
-export const POSTS = [
-  {
-    id: '1',
-    name: 'DJs flock by when MTV ax quiz prog.',
-    content: 'DJs flock by when MTV ax quiz prog.',
-    path: 'post-path-1',
-    tags: ['Technology', 'Sports'],
-  },
-  {
-    id: '2',
-    name: 'The quick, brown fox jumps over a lazy dog.',
-    content: 'DJs flock by when MTV ax quiz prog.',
-    path: 'post-path-2',
-    tags: ['Technology'],
-  },
-]

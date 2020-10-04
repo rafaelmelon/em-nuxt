@@ -1,35 +1,40 @@
 <template>
-  <main class="container">
-    <section>
+  <main class="container-md">
+    <section class="header">
       <h1 class="h1">Blog</h1>
       <p class="p">Welcome to the Blog.</p>
     </section>
-    <section>
-      <Post
-        v-for="item of posts"
-        :key="item.id"
-        :path="item.path"
-        :name="item.name"
-      />
+    <section class="blog">
+      <ul class="blog__grid">
+        <li v-for="article of articles" :key="article.slug">
+          <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
+            <img
+              :src="require(`~/assets/articles/${article.img}`)"
+              :alt="article.alt"
+            />
+            <article>
+              <h2 class="h2">{{ article.title }}</h2>
+              <p class="p">by {{ article.author.name }}</p>
+              <p class="p">{{ new Date(article.createdAt).toDateString() }}</p>
+              <p class="p">{{ article.description }}</p>
+            </article>
+          </NuxtLink>
+        </li>
+      </ul>
     </section>
   </main>
 </template>
 
 <script>
-import { POSTS } from '~/mock'
-import { Post } from '~/components'
-
 export default {
-  components: {
-    Post,
-  },
-  data() {
+  async asyncData({ $content, params }) {
+    const articles = await $content('articles', params.slug)
+      .only(['title', 'description', 'img', 'slug', 'author'])
+      .sortBy('createdAt', 'asc')
+      .fetch()
     return {
-      post: [],
+      articles,
     }
-  },
-  created() {
-    this.posts = POSTS
   },
   head() {
     return {
@@ -48,3 +53,24 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.blog {
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      border-radius: 4px;
+      margin: 1rem;
+      border: 1px solid #35495e;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+      article {
+        padding: 1rem;
+      }
+    }
+  }
+}
+</style>
