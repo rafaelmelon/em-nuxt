@@ -10,6 +10,11 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  target: 'static',
+  router: {
+    base: '/em-nuxt/',
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: ['@/assets/scss/main.scss'],
 
@@ -28,7 +33,7 @@ export default {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: ['@nuxt/content', '@nuxtjs/style-resources'],
+  modules: ['@nuxt/content', '@nuxtjs/style-resources', '@nuxtjs/robots'],
 
   styleResources: {
     scss: ['./assets/scss/*.scss'],

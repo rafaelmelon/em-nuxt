@@ -29,7 +29,6 @@ export default {
   components: {
     Card,
   },
-  name: 'page',
   mode: 'out-in',
   data() {
     return {

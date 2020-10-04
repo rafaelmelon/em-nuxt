@@ -56,7 +56,7 @@ export default {
           color: $dark;
           padding: 1rem;
           &:hover {
-            color: $white;
+            color: $black;
           }
         }
       }
