@@ -1,13 +1,14 @@
 <template>
   <main class="container-md">
     <section class="header">
-      <h1 class="h1">{{ article.title }}</h1>
-      <p class="p">by {{ article.author.name }}</p>
-      <p class="p">{{ new Date(article.createdAt).toDateString() }}</p>
       <img
         :src="require(`~/assets/articles/${article.img}`)"
         :alt="article.alt"
       />
+      <p class="p">by {{ article.author.name }}</p>
+      <p v-if="article.createdAt" class="p">
+        {{ new Date(article.createdAt).toDateString() }}
+      </p>
     </section>
     <section>
       <article>
@@ -25,12 +26,12 @@ export default {
   },
   head() {
     return {
-      title: 'Empathy | ' + 'Post',
+      title: `Empathy | ${this.article.title}`,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'content',
+          content: this.article.description,
         },
       ],
       htmlAttrs: {
@@ -42,15 +43,43 @@ export default {
 </script>
 
 <style>
+.nuxt-content h1 {
+  display: block;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 100px;
+  color: #333;
+}
+
 .nuxt-content h2 {
-  font-weight: bold;
-  font-size: 28px;
+  display: block;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 1rem;
+  font-weight: 300;
+  font-size: 50px;
+  color: #333;
 }
+
 .nuxt-content h3 {
-  font-weight: bold;
-  font-size: 22px;
+  display: block;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 1rem;
+  font-weight: 300;
+  font-size: 20px;
+  color: #333;
 }
+
 .nuxt-content p {
-  margin-bottom: 20px;
+  display: block;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 1rem;
+  font-weight: 300;
+  font-size: 14px;
+  color: #333;
 }
 </style>

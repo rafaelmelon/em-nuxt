@@ -39,7 +39,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  border-bottom: 1px solid $base-font-color;
+  background-color: $primary;
   &__logo {
     margin: 0 1rem;
     padding: 0.5rem;
@@ -57,10 +57,10 @@ export default {
       margin-right: 1rem;
       li {
         a {
-          color: $base-font-color;
+          color: $dark;
           padding: 1rem;
           &:hover {
-            color: black;
+            color: $white;
           }
         }
       }

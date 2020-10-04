@@ -2,11 +2,12 @@
   <main class="container-md">
     <section class="header">
       <h1 class="h1">{{ antagonist.name }}</h1>
-      <img
-        :src="require(`~/assets/logos/${antagonist.imgPath}`)"
-        :alt="antagonist.name"
-      />
-      <p class="p">{{ antagonist.description }}</p>
+    </section>
+    <section>
+      <article>
+        <p class="p">{{ antagonist.description }}</p>
+        <p class="p">{{ antagonist.description }}</p>
+      </article>
     </section>
   </main>
 </template>
@@ -30,7 +31,7 @@ export default {
   },
   head() {
     return {
-      title: 'Empathy | ' + this.antagonist.description,
+      title: 'Empathy | ' + this.antagonist.name,
       meta: [
         {
           hid: 'description',

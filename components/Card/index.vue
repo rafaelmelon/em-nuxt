@@ -1,7 +1,8 @@
 <template>
   <article class="card">
-    <header class="card__header">
+    <header v-if="!show" class="card__header">
       <h2 class="h2">{{ antagonism.name }}</h2>
+      <p class="p">{{ antagonism.description }}</p>
     </header>
     <div class="card__items">
       <ul>
@@ -14,18 +15,15 @@
                 :alt="item.name"
               />
             </div>
-            <CardSpecs :specs="item.specs" />
+            <CardSpecs v-if="show" :specs="item.specs" />
           </nuxt-link>
         </li>
       </ul>
     </div>
-    <div class="card__actions">
-      <nuxt-link class="button--green" :to="`/antagonism/${antagonism.path}`">{{
+    <footer v-if="!show" class="card__actions">
+      <nuxt-link class="button--grey" :to="`/antagonism/${antagonism.path}`">{{
         `Compare ${antagonism.name}`
       }}</nuxt-link>
-    </div>
-    <footer class="card__footer">
-      <p class="p">{{ antagonism.description }}</p>
     </footer>
   </article>
 </template>
@@ -43,17 +41,25 @@ export default {
       type: Object,
       required: true,
     },
+    show: {
+      type: Boolean,
+      required: true,
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
 .card {
-  border-radius: 4px;
   margin-bottom: 2rem;
-  border: 1px solid #35495e;
+  background-color: $light-gray;
+  border-radius: $radius;
   &__header {
-    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1rem 0 1rem;
   }
   &__item {
     margin-bottom: 1rem;
@@ -62,7 +68,6 @@ export default {
     align-items: center;
     justify-content: space-between;
     min-height: 200px;
-    background-color: #f4f4f4;
     padding: 1rem;
     min-width: 200px;
   }
@@ -82,7 +87,13 @@ export default {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          border-radius: 4px;
+          border-radius: $radius;
+          border: 1px solid $dark;
+          background-color: $white;
+          transition: background-color 0.2s ease;
+          &:hover {
+            background-color: $primary;
+          }
           img {
             width: 100%;
             max-width: 100px;

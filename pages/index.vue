@@ -5,9 +5,14 @@
       <p class="p">Welcome to Empathy comparison page.</p>
     </section>
     <section>
-      <Card v-for="item of antagonisms" :key="item.id" :antagonism="item" />
-      <div>
-        <a href="/blog" class="button--green"> Blog </a>
+      <Card
+        v-for="item of antagonisms"
+        :key="item.id"
+        :antagonism="item"
+        :show="false"
+      />
+      <div class="flex center">
+        <a href="/blog" class="button--grey">Read the Blog</a>
       </div>
     </section>
   </main>
@@ -36,7 +41,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Website to show comparatives',
+          content: 'Home page description',
         },
       ],
       htmlAttrs: {

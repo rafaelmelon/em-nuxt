@@ -15,7 +15,9 @@
             <article>
               <h2 class="h2">{{ article.title }}</h2>
               <p class="p">by {{ article.author.name }}</p>
-              <p class="p">{{ new Date(article.createdAt).toDateString() }}</p>
+              <p v-if="article.createdAt" class="p">
+                {{ new Date(article.createdAt).toDateString() }}
+              </p>
               <p class="p">{{ article.description }}</p>
             </article>
           </NuxtLink>
@@ -43,7 +45,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Section to show posts',
+          content: 'Blog page description',
         },
       ],
       htmlAttrs: {
@@ -60,10 +62,14 @@ export default {
     display: flex;
     flex-wrap: wrap;
     li {
-      border-radius: 4px;
-      margin: 1rem;
-      border: 1px solid #35495e;
+      margin-bottom: 2rem;
+      background-color: $light-gray;
+      border-radius: $radius;
       overflow: hidden;
+      transition: background-color 0.2s ease;
+      &:hover {
+        background-color: $primary;
+      }
       img {
         width: 100%;
       }

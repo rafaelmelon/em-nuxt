@@ -5,7 +5,7 @@
       <p class="p">{{ antagonism.description }}</p>
     </section>
     <section>
-      <Card :antagonism="antagonism" />
+      <Card :antagonism="antagonism" :show="true" />
     </section>
   </main>
 </template>
@@ -26,7 +26,7 @@ export default {
   },
   head() {
     return {
-      title: 'Empathy | ' + this.antagonism.description,
+      title: 'Empathy | ' + this.antagonism.name,
       meta: [
         {
           hid: 'description',

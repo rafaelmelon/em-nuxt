@@ -58,24 +58,28 @@ export default {
 .specs {
   width: 100%;
   &__spec {
-    margin: 0.5em 0 0.5em;
-    border: 0.1em solid darken(#e9e9e9, 25%);
-    border-radius: 3px;
-    background: lighten(#e9e9e9, 25%);
+    border: 0.1em solid darken($dark, 25%);
+    border-radius: $radius;
+    background: lighten($secondary, 25%);
     list-style: none;
     overflow: hidden;
+    margin-bottom: 1rem;
     div {
       position: relative;
-      height: 1.4em;
-      background: #e9e9e9;
-      font-size: 1.2em;
-      label:first-child {
-        position: absolute;
-        left: 8px;
-      }
-      label:last-child {
-        position: absolute;
-        right: 8px;
+      height: 2em;
+      background: $secondary;
+      label {
+        color: $dark;
+        top: 50%;
+        transform: translateY(-50%);
+        &:first-child {
+          position: absolute;
+          left: 8px;
+        }
+        &:last-child {
+          position: absolute;
+          right: 8px;
+        }
       }
     }
   }

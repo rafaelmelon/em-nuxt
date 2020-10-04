@@ -1,6 +1,6 @@
 <template>
-  <footer class="footer">
-    <p class="p">Rafael Melón | User-centered Front-end Developert</p>
+  <footer class="footer flex center">
+    <p class="p">Rafael Melón | User-centered Front-end Developer</p>
   </footer>
 </template>
 
@@ -14,6 +14,6 @@ export default {
 .footer {
   padding: 1rem;
   margin-top: 2rem;
-  border-top: 1px solid #35495e;
+  background-color: $primary;
 }
 </style>
