@@ -1,9 +1,9 @@
 <template>
   <header class="navbar">
     <nuxt-link class="navbar__logo" to="/"
-      ><img src="~/assets/logo-empathy.gif"
+      ><img src="~/assets/logo-rafaelmelon.svg" alt="logo rafaelmelon"
     /></nuxt-link>
-    <nav class="navbar__navigation">
+    <nav>
       <ul>
         <li v-for="item of antagonisms" :key="item.id">
           <nuxt-link :to="'/antagonism/' + item.path">{{
@@ -34,32 +34,33 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #35495e;
+  align-items: stretch;
+  border-bottom: 1px solid $base-font-color;
   &__logo {
     margin: 0 1rem;
+    padding: 0.5rem;
     img {
       animation: 1s appear;
       margin: auto;
-      width: 150px;
+      width: 50px;
     }
   }
-  &__navigation {
+  nav {
+    display: flex;
+    align-items: center;
     ul {
       display: flex;
+      margin-right: 1rem;
       li {
         a {
-          border-radius: 4px;
-          border: 1px solid #3b8070;
-          color: #3b8070;
+          color: $base-font-color;
           padding: 1rem;
-          margin-right: 1rem;
-          &:last-child {
-            margin-right: 1rem;
+          &:hover {
+            color: black;
           }
         }
       }
