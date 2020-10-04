@@ -15,7 +15,7 @@
         :show="false"
       />
       <div class="flex center">
-        <a href="/blog" class="button--grey">Read the Blog</a>
+        <NuxtLink class="button--grey" to="/blog"> Read the Blog</NuxtLink>
       </div>
     </section>
   </main>
